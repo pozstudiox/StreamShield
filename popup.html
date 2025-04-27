@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamShield Ayarlar</title>
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <div class="popup-container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <!-- Inline SVG logo -->
+        <svg class="logo" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad1" x1="0.5" y1="0" x2="0.5" y2="1">
+              <stop offset="0%" stop-color="#58a6ff"/>
+              <stop offset="100%" stop-color="#1f6feb"/>
+            </linearGradient>
+          </defs>
+          <path d="M64 8 L24 32 L24 80 C24 102 44 120 64 120 C84 120 104 102 104 80 L104 32 Z"
+                fill="url(#grad1)" stroke="#fff" stroke-width="4"/>
+          <polygon points="54,48 90,64 54,80" fill="#fff"/>
+          <circle cx="64" cy="64" r="42" fill="none" stroke="#ff5555" stroke-width="8"/>
+          <line x1="38" y1="38" x2="90" y2="90"
+                stroke="#ff5555" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        <h1 class="app-name">StreamShield</h1>
+      </div>
+      <!-- Ayarlar butonu -->
+      <button id="settings-btn" class="settings-button" title="Ayarlar">
+        <!-- PozStudio imzalı gear SVG -->
+        <img src="icons/settings.svg" alt="Ayarlar" class="settings-icon"/>
+      </button>
+    </header>
+
+    <!-- TAGLINE -->
+    <p class="tagline">Reklamsız YouTube deneyimi için kalkanınız</p>
+
+    <!-- ANA BÖLÜM -->
+    <main id="main-section">
+      <div class="card">
+        <div class="toggle-section">
+          <label class="switch">
+            <input type="checkbox" id="toggle-blocking"/>
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label">Reklam Engelleme</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Whitelist</h2>
+        <div class="whitelist-input">
+          <input type="text" id="whitelist-input" placeholder="youtube.com/kanal"/>
+          <button id="add-whitelist" class="icon-button">+</button>
+        </div>
+        <ul id="whitelist-list"></ul>
+      </div>
+    </main>
+
+    <!-- HAKKIMIZDA BÖLÜMÜ -->
+    <aside id="settings-section" class="hidden">
+      <div class="card settings-card">
+        <div class="settings-header">
+          <button id="back-btn" class="back-button" title="Geri">←</button>
+          <h2>Hakkımızda</h2>
+        </div>
+        <p class="about-text">
+          StreamShield, YouTube reklâm öğelerini engelleyerek kesintisiz oynatma sağlar.
+        </p>
+        <div class="setting-item">
+          <span class="label">Versiyon:</span>
+          <span class="value">v1.2</span>
+        </div>
+        <div class="setting-item">
+          <span class="label">Yazar:</span>
+          <span class="value">PozStudio</span>
+        </div>
+        <div class="settings-actions">
+          <button id="visit-site-btn" class="btn secondary-btn">Web Sitesi</button>
+          <button id="clear-whitelist-btn" class="btn secondary-btn">Whitelist’i Temizle</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <small>© 2025 PozStudio</small>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
