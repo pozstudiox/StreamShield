@@ -7,25 +7,12 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- NAVBAR: inline SVG logo -->
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
-      <a href="#" class="logo">
-        <svg class="logo-img" width="32" height="32" viewBox="0 0 128 128"
-             xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="grad1" x1="0.5" y1="0" x2="0.5" y2="1">
-              <stop offset="0%" stop-color="#58a6ff"/>
-              <stop offset="100%" stop-color="#1f6feb"/>
-            </linearGradient>
-          </defs>
-          <path d="M64 8 L24 32 L24 80 C24 102 44 120 64 120 C84 120 104 102 104 80 L104 32 Z"
-                fill="url(#grad1)" stroke="#fff" stroke-width="4"/>
-          <polygon points="54,48 90,64 54,80" fill="#fff"/>
-          <circle cx="64" cy="64" r="42" fill="none" stroke="#ff5555" stroke-width="8"/>
-          <line x1="38" y1="38" x2="90" y2="90"
-                stroke="#ff5555" stroke-width="8" stroke-linecap="round"/>
-        </svg>
+      <a href="#hero" class="logo">
+        <img src="icons/streamshield48.png" alt="StreamShield Logo" class="logo-img"/>
         <span class="logo-text">StreamShield</span>
       </a>
       <ul class="menu">
@@ -39,35 +26,35 @@
   </nav>
 
   <!-- HERO -->
-  <section id="hero" class="hero">
+  <section id="hero" class="hero fade-in">
     <div class="container hero-content">
-      <h1>Reklamsız YouTube Deneyimine Hoş Geldiniz</h1>
-      <p>StreamShield ile videolarınıza kesintisiz odaklanın, reklamlardan vazgeçin.</p>
+      <h1>Kesintisiz YouTube Deneyimi</h1>
+      <p>StreamShield ile reklamsız videolara odaklanın.</p>
       <a href="#download" class="btn">Hemen İndir</a>
     </div>
   </section>
 
   <!-- ÖZELLİKLER -->
-  <section id="features" class="features">
+  <section id="features" class="features fade-in">
     <div class="container">
       <h2>Özellikler</h2>
       <div class="feature-grid">
-        <div class="feature-card">
+        <div class="feature-card fade-in">
           <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
           <h3>Otomatik Engelleme</h3>
-          <p>Video içi reklamları otomatik olarak durdurur.</p>
+          <p>Video içi ve banner reklâm öğelerini engeller.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card fade-in">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L17 22l-5-3-5 3 1.5-8.5L2 9h7z"/></svg>
           <h3>Whitelist Desteği</h3>
-          <p>İstediğiniz kanallarda reklamları hep izin verin.</p>
+          <p>Seçtiğiniz kanallarda reklâmları her zaman izin verin.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card fade-in">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
           <h3>Kolay Kullanım</h3>
-          <p>Tek tıkla aç/kapa kontrolü sunar.</p>
+          <p>Tek tıkla aç/kapa kontrolü sağlar.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card fade-in">
           <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 4h18v2H3zm0 4h18v2H3z"/></svg>
           <h3>Açık Kaynak</h3>
           <p>GitHub’da tamamen şeffaf ve ücretsiz.</p>
@@ -77,22 +64,21 @@
   </section>
 
   <!-- NASIL ÇALIŞIR -->
-  <section id="how" class="how">
+  <section id="how" class="how fade-in">
     <div class="container">
       <h2>Nasıl Çalışır?</h2>
       <ol class="steps">
-        <li><span class="step-number">1</span> Chrome’a StreamShield uzantısını ekleyin.</li>
-        <li><span class="step-number">2</span> Popup’tan “Reklam Engelleme”yi aktif edin.</li>
-        <li><span class="step-number">3</span> YouTube’a gidin, kesintisiz videoların tadını çıkarın.</li>
+        <li><span class="step-number"></span>Chrome’a StreamShield uzantısını ekleyin.</li>
+        <li><span class="step-number"></span>Popup’tan reklam engellemeyi aktif edin.</li>
+        <li><span class="step-number"></span>YouTube’da reklâmlardan kurtulun.</li>
       </ol>
     </div>
   </section>
 
   <!-- İNDİR -->
-  <section id="download" class="download">
+  <section id="download" class="download fade-in">
     <div class="container">
       <h2>Hemen İndir</h2>
-      <p>Chrome Web Mağaza’dan yükleyin veya kaynak kodu inceleyin.</p>
       <div class="btn-group">
         <a href="https://chrome.google.com/webstore" class="btn">Web Mağaza</a>
         <a href="https://github.com/pozstudiox/StreamShield.git" class="btn outline">GitHub</a>
@@ -100,8 +86,8 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer id="contact" class="footer">
+  <!-- İLETİŞİM / FOOTER -->
+  <footer id="contact" class="footer fade-in">
     <div class="container footer-grid">
       <div>
         <h3>İletişim</h3>
@@ -112,9 +98,14 @@
         <p><a href="#">Twitter</a> | <a href="https://github.com/pozstudiox">GitHub</a></p>
       </div>
       <div>
-        <h3>© 2025 StreamShield</h3>
+        <h3>© 2025 PozStudio</h3>
       </div>
     </div>
   </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" title="Yukarı">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
