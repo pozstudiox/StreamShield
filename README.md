@@ -28,4 +28,4 @@ Developed by PozStudio · v1.2
 
 1. Clone this repository or download the ZIP:
    ```bash
-   git clone https://github.com/yourusername/streamshield.git
+   [git clone https://github.com/yourusername/streamshield.git](https://github.com/pozstudiox/StreamShield.git)
