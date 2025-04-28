@@ -8,40 +8,50 @@ html {
   scroll-behavior: smooth;
 }
 :root {
+  /* Color Palette */
   --bg: #0d1117;
-  --surface: rgba(22,27,34,0.8);
-  --surface-alt: rgba(22,27,34,0.6);
+  --surface: rgba(22,27,34,0.85);
+  --surface-alt: rgba(22,27,34,0.65);
   --accent: #58a6ff;
   --accent-hover: #1f6feb;
   --text: #e6edf3;
   --muted: #8b949e;
   --radius: 12px;
   --shadow: 0 8px 24px rgba(0,0,0,0.6);
+  --hover-shadow: 0 12px 32px rgba(0,0,0,0.8);
   --font: 'Segoe UI', sans-serif;
   --transition: 0.3s ease;
+  --animation-duration: 0.6s;
 }
-
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
   line-height: 1.6;
 }
-
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeIn var(--animation-duration) ease;
 }
-
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 /* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
   background: var(--surface);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   box-shadow: var(--shadow);
-  z-index: 10;
+  z-index: 999;
+  animation: slideDown var(--animation-duration) ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 .navbar .container {
   display: flex;
@@ -58,12 +68,12 @@ body {
 .logo-img {
   width: 32px;
   height: 32px;
-  display: block;
 }
 .logo-text {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--accent);
+  letter-spacing: 1px;
 }
 .navbar .menu {
   list-style: none;
@@ -74,16 +84,32 @@ body {
   color: var(--text);
   text-decoration: none;
   font-size: 0.95rem;
-  padding: 4px 8px;
+  padding: 6px 12px;
   border-radius: var(--radius);
+  position: relative;
   transition: background var(--transition), color var(--transition);
+}
+.navbar .menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform var(--transition), opacity var(--transition);
+}
+.navbar .menu a:hover::after,
+.navbar .menu a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 .navbar .menu a:hover,
 .navbar .menu a.active {
-  background: var(--accent-hover);
   color: #fff;
 }
-
 /* HERO */
 .hero {
   background: linear-gradient(135deg, #1f2937, #111827);
@@ -94,18 +120,24 @@ body {
 }
 .hero::after {
   content: "";
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: url('hero-background-pattern.png') center/cover no-repeat;
   opacity: 0.1;
 }
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 16px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  animation: fadeIn var(--animation-duration) ease;
 }
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 32px;
   color: var(--muted);
+  opacity: 0;
+  animation: fadeIn var(--animation-duration) ease 0.3s forwards;
 }
 .btn {
   display: inline-block;
@@ -115,11 +147,12 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 600;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
 }
 .btn.outline {
   background: transparent;
@@ -130,7 +163,6 @@ body {
   background: var(--accent);
   color: #fff;
 }
-
 /* ÖZELLİKLER */
 .features {
   padding: 100px 0;
@@ -139,6 +171,16 @@ body {
 .features h2 {
   font-size: 2.5rem;
   margin-bottom: 48px;
+  position: relative;
+}
+.features h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 16px auto 0;
+  border-radius: 2px;
 }
 .feature-grid {
   display: grid;
@@ -152,16 +194,25 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
+  opacity: 0;
+  animation: fadeIn var(--animation-duration) ease forwards;
 }
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.8);
+  box-shadow: var(--hover-shadow);
 }
 .feature-card .icon {
   width: 48px;
   height: 48px;
   margin-bottom: 20px;
   fill: var(--accent);
+  transition: transform var(--transition);
+}
+.feature-card .icon:hover {
+  transform: scale(1.1);
 }
 .feature-card h3 {
   font-size: 1.2rem;
@@ -171,7 +222,6 @@ body {
   color: var(--muted);
   font-size: 0.95rem;
 }
-
 /* NASIL ÇALIŞIR */
 .how {
   background: var(--surface);
@@ -181,6 +231,7 @@ body {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 48px;
+  position: relative;
 }
 .steps {
   max-width: 800px;
@@ -194,26 +245,38 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  position: relative;
+  padding-left: 32px;
 }
-.step-number {
+.steps li::before {
   counter-increment: step;
   content: counter(step);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
   background: var(--accent);
   color: #fff;
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   font-size: 1.2rem;
-  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.steps li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 58px;
+  width: 2px;
+  height: calc(100% - 58px);
+  background: var(--muted);
 }
 .steps p {
   font-size: 1rem;
   color: var(--text);
 }
-
 /* İNDİR */
 .download {
   padding: 100px 0;
@@ -231,7 +294,6 @@ body {
   display: inline-flex;
   gap: 16px;
 }
-
 /* FOOTER */
 .footer {
   background: var(--surface);
@@ -251,8 +313,9 @@ body {
 .footer-grid a {
   color: var(--accent);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition), transform var(--transition);
 }
 .footer-grid a:hover {
   color: var(--accent-hover);
+  transform: translateY(-2px);
 }
