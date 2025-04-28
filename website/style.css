@@ -105,15 +105,19 @@ body {
   margin-bottom: 32px;
 }
 
+/* BUTTONS - KURUMSAL RENKLER */
 .btn {
   display: inline-block;
   padding: 12px 28px;
   border-radius: var(--radius);
   font-weight: 600;
   text-decoration: none;
+  font-size: 1rem;
   transition: all var(--transition);
   cursor: pointer;
   border: none;
+  min-width: 120px;
+  text-align: center;
 }
 
 .btn.primary {
@@ -125,6 +129,42 @@ body {
   background: var(--color-accent-hover);
 }
 
+.btn.secondary {
+  background: #2d333b;
+  color: #d1d5db;
+}
+
+.btn.secondary:hover {
+  background: #374151;
+}
+
+.btn.success {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.btn.success:hover {
+  background: #27ae60;
+}
+
+.btn.danger {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #c0392b;
+}
+
+.btn.warning {
+  background: #f39c12;
+  color: #fff;
+}
+
+.btn.warning:hover {
+  background: #e67e22;
+}
+
 .btn.outline {
   background: transparent;
   border: 2px solid var(--color-accent);
@@ -133,6 +173,39 @@ body {
 
 .btn.outline:hover {
   background: var(--color-accent);
+  color: #fff;
+}
+
+.btn.outline-secondary {
+  background: transparent;
+  border: 2px solid #6b7280;
+  color: #9ca3af;
+}
+
+.btn.outline-secondary:hover {
+  background: #374151;
+  color: #fff;
+}
+
+.btn.outline-danger {
+  background: transparent;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+}
+
+.btn.outline-danger:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn.outline-success {
+  background: transparent;
+  border: 2px solid #2ecc71;
+  color: #2ecc71;
+}
+
+.btn.outline-success:hover {
+  background: #2ecc71;
   color: #fff;
 }
 
