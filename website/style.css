@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
 /* DEĞİŞKENLER */
 :root {
   --color-bg: #0d1117;
