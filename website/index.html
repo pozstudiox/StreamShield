@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="StreamShield - Reklamsız YouTube Deneyimi">
-  <meta name="author" content="PozStudio">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamShield – Reklamsız YouTube</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container">
-      <a href="#" class="logo" aria-label="StreamShield Ana Sayfa">
+      <a href="#" class="logo" aria-label="StreamShield">
         <svg class="logo-img" width="32" height="32" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="grad1" x1="0.5" y1="0" x2="0.5" y2="1">
@@ -31,24 +28,22 @@
         <span class="logo-text">StreamShield</span>
       </a>
 
-      <!-- Dil Seçici -->
+      <ul class="menu">
+        <li><a href="#hero">Ana Sayfa</a></li>
+        <li><a href="#features">Özellikler</a></li>
+        <li><a href="#faq">SSS</a></li>
+        <li><a href="#download">İndir</a></li>
+      </ul>
+
+      <!-- DİL SEÇİCİ -->
       <div class="language-selector" role="button" aria-label="Dil Seçici">
-        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon">
+        <img src="https://flagcdn.com/w40/tr.png" alt="TR" class="flag-icon" />
         <div class="language-dropdown">
           <div><img src="https://flagcdn.com/w40/tr.png" alt="TR"> Türkçe</div>
           <div><img src="https://flagcdn.com/w40/gb.png" alt="EN"> English</div>
           <div><img src="https://flagcdn.com/w40/de.png" alt="DE"> Deutsch</div>
         </div>
       </div>
-
-      <nav>
-        <ul class="menu">
-          <li><a href="#hero">Ana Sayfa</a></li>
-          <li><a href="#features">Özellikler</a></li>
-          <li><a href="#faq">SSS</a></li>
-          <li><a href="#download">İndir</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
@@ -67,22 +62,18 @@
       <h2>Özellikler</h2>
       <div class="feature-grid">
         <div class="feature-card">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
           <h3>Otomatik Engelleme</h3>
           <p>Video içi reklamları otomatik olarak durdurur.</p>
         </div>
         <div class="feature-card">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L17 22l-5-3-5 3 1.5-8.5L2 9h7z"/></svg>
           <h3>Whitelist Desteği</h3>
           <p>İstediğiniz kanallarda reklamları hep izin verin.</p>
         </div>
         <div class="feature-card">
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
           <h3>Kolay Kullanım</h3>
           <p>Tek tıkla aç/kapa kontrolü sunar.</p>
         </div>
         <div class="feature-card">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 4h18v2H3zm0 4h18v2H3z"/></svg>
           <h3>Açık Kaynak</h3>
           <p>GitHub’da tamamen şeffaf ve ücretsiz.</p>
         </div>
@@ -94,7 +85,7 @@
   <section id="faq" class="faq">
     <div class="container">
       <h2>Sık Sorulan Sorular</h2>
-      
+
       <div class="faq-item">
         <h4>StreamShield hangi tarayıcılarda çalışır?</h4>
         <p>Şu an sadece Google Chrome desteklenmektedir. Diğer tarayıcılar için çalışmalar sürüyor.</p>
@@ -130,14 +121,12 @@
 
   <!-- SCRIPTS -->
   <script>
-    // SSS Aç/Kapa
-    document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
         btn.parentElement.classList.toggle('active');
       });
     });
 
-    // Dil Seçici
     document.querySelectorAll('.language-dropdown div').forEach(option => {
       option.addEventListener('click', () => {
         alert(option.innerText + " dili seçildi.");
