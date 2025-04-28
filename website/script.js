@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Fade-in animasyonu
   const faders = document.querySelectorAll('.fade-in');
@@ -29,21 +27,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Back-to-top görünümü
     const btn = document.getElementById('back-to-top');
-    btn.style.display = y > 300 ? 'flex' : 'none';
+    if (btn) {
+      btn.style.display = y > 300 ? 'flex' : 'none';
+    }
   });
 
   // 4. Back-to-top tıklama
-  document.getElementById('back-to-top')
-    .addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  const btnTop = document.getElementById('back-to-top');
+  if (btnTop) {
+    btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 
   // 5. Hero harf harf animasyon
   const h1 = document.querySelector('.hero-content h1');
-  const txt = h1.textContent.trim();
-  h1.textContent = '';
-  txt.split('').forEach((ch, i) => {
-    const sp = document.createElement('span');
-    sp.textContent = ch;
-    sp.style.animationDelay = `${i * 0.05}s`;
-    h1.appendChild(sp);
-  });
+  if (h1) {
+    const txt = h1.textContent.trim();
+    h1.textContent = '';
+    txt.split('').forEach((ch, i) => {
+      const sp = document.createElement('span');
+      sp.textContent = ch;
+      sp.style.animationDelay = `${i * 0.05}s`;
+      h1.appendChild(sp);
+    });
+  }
+
+  // 6. Geri Bildirim Paneli
+  const feedbackBtn = document.getElementById('feedback-toggle');
+  const feedbackPanel = document.querySelector('.feedback-panel');
+  if (feedbackBtn && feedbackPanel) {
+    feedbackBtn.addEventListener('click', () => {
+      feedbackPanel.classList.toggle('hidden');
+    });
+  }
 });
