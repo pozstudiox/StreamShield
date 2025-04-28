@@ -30,6 +30,7 @@ body {
   font-size: 16px;
 }
 
+/* Container */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -45,52 +46,76 @@ body {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid #222;
+  padding: 16px 0;
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  flex-wrap: wrap;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
 }
 
 .logo-img {
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #fff;
 }
 
 .logo-text {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: var(--color-accent);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 /* NAV MENU */
 .navbar .menu {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
 .navbar .menu a {
+  position: relative;
   color: var(--color-text);
   text-decoration: none;
-  font-size: 15px;
-  padding: 8px 12px;
+  font-size: 16px;
+  padding: 10px 14px;
   border-radius: var(--radius);
-  transition: background var(--transition), color var(--transition);
+  transition: var(--transition);
+}
+
+.navbar .menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent-hover);
+  transition: width var(--transition);
+}
+
+.navbar .menu a:hover::after {
+  width: 70%;
 }
 
 .navbar .menu a:hover {
-  background: var(--color-surface-alt);
   color: var(--color-accent-hover);
 }
 
@@ -98,25 +123,26 @@ body {
 .hero {
   background: linear-gradient(145deg, #1f2937, #111827);
   text-align: center;
-  padding: 120px 20px 100px;
+  padding: 160px 20px 120px;
   border-bottom: 1px solid #222;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--color-muted);
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 /* BUTTONS - KURUMSAL STİL */
 .btn {
   display: inline-block;
-  padding: 14px 30px;
+  padding: 14px 32px;
   border-radius: var(--radius);
   font-weight: 600;
   font-size: 1rem;
@@ -131,18 +157,18 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 /* BUTTON VARIANTS */
 .btn.primary {
-  background: var(--color-accent);
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-hover));
   color: #fff;
 }
 
 .btn.primary:hover {
-  background: var(--color-accent-hover);
+  filter: brightness(1.1);
 }
 
 .btn.secondary {
@@ -167,159 +193,7 @@ body {
   color: #fff;
 }
 
-/* FEATURES */
-.features {
-  padding: 80px 0;
-  text-align: center;
-}
-
-.features h2 {
-  font-size: 2.5rem;
-  margin-bottom: 48px;
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.feature-card {
-  background: var(--color-surface);
-  padding: 32px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: transform var(--transition);
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-}
-
-.feature-card .icon {
-  width: 44px;
-  height: 44px;
-  fill: var(--color-accent);
-  margin-bottom: 20px;
-}
-
-.feature-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-
-.feature-card p {
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* HOW IT WORKS */
-.how {
-  background: var(--color-surface-alt);
-  padding: 80px 20px;
-}
-
-.how h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.3rem;
-}
-
-.steps {
-  list-style: none;
-  counter-reset: step;
-  max-width: 840px;
-  margin: 0 auto;
-}
-
-.steps li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  gap: 20px;
-  background: var(--color-surface);
-  padding: 20px;
-  border-radius: var(--radius);
-}
-
-.step-number {
-  counter-increment: step;
-  width: 50px;
-  height: 50px;
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.steps p {
-  font-size: 1rem;
-  color: var(--color-text);
-  margin: 0;
-}
-
-/* DOWNLOAD */
-.download {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.download h2 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-.download p {
-  color: var(--color-muted);
-  margin-bottom: 28px;
-  font-size: 1rem;
-}
-
-.btn-group {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* FOOTER */
-.footer {
-  background: var(--color-surface);
-  padding: 60px 20px;
-  color: var(--color-muted);
-  border-top: 1px solid #222;
-  margin-top: 60px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 28px;
-  text-align: center;
-}
-
-.footer-grid h3 {
-  color: var(--color-text);
-  margin-bottom: 14px;
-  font-size: 1.1rem;
-}
-
-.footer-grid a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-.footer-grid a:hover {
-  color: var(--color-accent-hover);
-}
-
-/* RESPONSIVE HUD */
+/* Responsive Navbar */
 @media (max-width: 768px) {
   .navbar .menu {
     display: none;
@@ -330,25 +204,15 @@ body {
     align-items: flex-start;
   }
 
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .hero p {
-    font-size: 1rem;
-  }
-
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .steps li {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .btn-group {
-    flex-direction: column;
-    align-items: center;
+    font-size: 1.05rem;
   }
 }
