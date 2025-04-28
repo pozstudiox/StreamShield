@@ -433,13 +433,18 @@ body {
   font-size: 1rem;
 }
 
-/* GİZLİLİK POLİTİKASI BUTONU */
+/* ALTTA SABİT GİZLİLİK POLİTİKASI BUTONU */
+.privacy-bottom {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 40px;
+}
+
 .privacy-btn {
   display: inline-block;
   padding: 10px 20px;
-  margin-top: 10px;
-  background: transparent;
   border: 2px solid var(--color-accent);
+  background: transparent;
   color: var(--color-accent);
   border-radius: var(--radius);
   font-size: 0.95rem;
