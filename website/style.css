@@ -432,3 +432,22 @@ body {
   margin-bottom: 12px;
   font-size: 1rem;
 }
+/* GİZLİLİK POLİTİKASI BUTONU */
+.privacy-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.privacy-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
