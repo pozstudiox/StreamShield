@@ -1,36 +1,32 @@
 {
   "manifest_version": 3,
   "name": "StreamShield",
-  "version": "1.2",
+  "version": "1.3",
   "description": "Reklamsız YouTube deneyimi için kalkanınız",
-
   "icons": {
     "16": "icons/streamshield16.png",
     "48": "icons/streamshield48.png",
     "128": "icons/streamshield128.png"
   },
-
   "action": {
-    "default_title": "StreamShield – Reklamsız YouTube",
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/streamshield16.png",
       "48": "icons/streamshield48.png",
       "128": "icons/streamshield128.png"
-    },
-    "default_popup": "popup.html"
+    }
   },
-
   "permissions": [
     "declarativeNetRequest",
     "storage",
-    "scripting"
+    "tabs"
   ],
   "host_permissions": [
     "*://*.youtube.com/*",
     "*://*.googlevideo.com/*",
-    "*://*.doubleclick.net/*"
+    "*://*.doubleclick.net/*",
+    "*://*.googlesyndication.com/*"
   ],
-
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -40,11 +36,9 @@
       }
     ]
   },
-
   "background": {
     "service_worker": "background.js"
   },
-
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
