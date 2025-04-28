@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StreamShield – Reklamsız YouTube</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar">
+  <nav class="navbar">
     <div class="container">
-      <a href="#" class="logo" aria-label="StreamShield">
+      <a href="#" class="logo">
         <svg class="logo-img" width="32" height="32" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="grad1" x1="0.5" y1="0" x2="0.5" y2="1">
@@ -23,29 +23,20 @@
                 fill="url(#grad1)" stroke="#fff" stroke-width="4"/>
           <polygon points="54,48 90,64 54,80" fill="#fff"/>
           <circle cx="64" cy="64" r="42" fill="none" stroke="#ff5555" stroke-width="8"/>
-          <line x1="38" y1="38" x2="90" y2="90" stroke="#ff5555" stroke-width="8" stroke-linecap="round"/>
+          <line x1="38" y1="38" x2="90" y2="90"
+                stroke="#ff5555" stroke-width="8" stroke-linecap="round"/>
         </svg>
         <span class="logo-text">StreamShield</span>
       </a>
-
       <ul class="menu">
         <li><a href="#hero">Ana Sayfa</a></li>
         <li><a href="#features">Özellikler</a></li>
-        <li><a href="#faq">SSS</a></li>
+        <li><a href="#how">Nasıl Çalışır?</a></li>
         <li><a href="#download">İndir</a></li>
+        <li><a href="#contact">İletişim</a></li>
       </ul>
-
-      <!-- DİL SEÇİCİ -->
-      <div class="language-selector" role="button" aria-label="Dil Seçici">
-        <img src="https://flagcdn.com/w40/tr.png" alt="TR" class="flag-icon" />
-        <div class="language-dropdown">
-          <div><img src="https://flagcdn.com/w40/tr.png" alt="TR"> Türkçe</div>
-          <div><img src="https://flagcdn.com/w40/gb.png" alt="EN"> English</div>
-          <div><img src="https://flagcdn.com/w40/de.png" alt="DE"> Deutsch</div>
-        </div>
-      </div>
     </div>
-  </header>
+  </nav>
 
   <!-- HERO -->
   <section id="hero" class="hero">
@@ -62,18 +53,22 @@
       <h2>Özellikler</h2>
       <div class="feature-grid">
         <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
           <h3>Otomatik Engelleme</h3>
           <p>Video içi reklamları otomatik olarak durdurur.</p>
         </div>
         <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L17 22l-5-3-5 3 1.5-8.5L2 9h7z"/></svg>
           <h3>Whitelist Desteği</h3>
           <p>İstediğiniz kanallarda reklamları hep izin verin.</p>
         </div>
         <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
           <h3>Kolay Kullanım</h3>
           <p>Tek tıkla aç/kapa kontrolü sunar.</p>
         </div>
         <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 4h18v2H3zm0 4h18v2H3z"/></svg>
           <h3>Açık Kaynak</h3>
           <p>GitHub’da tamamen şeffaf ve ücretsiz.</p>
         </div>
@@ -81,22 +76,65 @@
     </div>
   </section>
 
+  <!-- NASIL ÇALIŞIR -->
+  <section id="how" class="how">
+    <div class="container">
+      <h2>Nasıl Çalışır?</h2>
+      <ol class="steps">
+        <li><span class="step-number">1</span> Chrome’a StreamShield uzantısını ekleyin.</li>
+        <li><span class="step-number">2</span> Popup’tan “Reklam Engelleme”yi aktif edin.</li>
+        <li><span class="step-number">3</span> YouTube’a gidin, kesintisiz videoların tadını çıkarın.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HAKKIMIZDA -->
+  <section class="about">
+    <div class="container">
+      <h2>Hakkımızda</h2>
+      <p>StreamShield, YouTube deneyimini kesintisiz hale getirmeyi amaçlayan açık kaynaklı bir tarayıcı uzantısıdır. Amacımız, kullanıcıya sade, güvenli ve reklamsız bir video dünyası sunmak.</p>
+    </div>
+  </section>
+
+  <!-- YORUMLAR -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Kullanıcı Yorumları</h2>
+      <div class="testimonial-card">
+        <p>"StreamShield sayesinde YouTube izlemek artık çok daha keyifli!"</p>
+        <div class="author">– Elif K.</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"Kurulumu kolay, etkisi büyük. Kesinlikle tavsiye ederim."</p>
+        <div class="author">– Murat A.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- SSS -->
-  <section id="faq" class="faq">
+  <section class="faq">
     <div class="container">
       <h2>Sık Sorulan Sorular</h2>
-
       <div class="faq-item">
         <h4>StreamShield hangi tarayıcılarda çalışır?</h4>
         <p>Şu an sadece Google Chrome desteklenmektedir. Diğer tarayıcılar için çalışmalar sürüyor.</p>
-        <button class="faq-toggle">Gizle/Göster</button>
       </div>
-
       <div class="faq-item">
         <h4>Reklam engelleme tüm videolarda çalışıyor mu?</h4>
         <p>Evet, ancak bazı içeriklerde YouTube güncellemeleri nedeniyle anlık aksaklıklar yaşanabilir.</p>
-        <button class="faq-toggle">Gizle/Göster</button>
       </div>
+    </div>
+  </section>
+
+  <!-- GÜNCEL SÜRÜM -->
+  <section class="changelog">
+    <div class="container">
+      <h2>v3.6 Güncellemeleri</h2>
+      <ul>
+        <li>Yeni reklam tespit motoru eklendi</li>
+        <li>Arayüz iyileştirmeleri yapıldı</li>
+        <li>Mobil uyumluluk artırıldı</li>
+      </ul>
     </div>
   </section>
 
@@ -113,26 +151,21 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 StreamShield | <a href="mailto:destek@streamshield.local">destek@streamshield.local</a></p>
+  <footer id="contact" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>İletişim</h3>
+        <p>Email: <a href="mailto:destek@streamshield.local">destek@streamshield.local</a></p>
+      </div>
+      <div>
+        <h3>Sosyal</h3>
+        <p><a href="#">Twitter</a> | <a href="#">GitHub</a></p>
+      </div>
+      <div>
+        <h3>© 2025 StreamShield</h3>
+      </div>
     </div>
   </footer>
-
-  <!-- SCRIPTS -->
-  <script>
-    document.querySelectorAll('.faq-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.parentElement.classList.toggle('active');
-      });
-    });
-
-    document.querySelectorAll('.language-dropdown div').forEach(option => {
-      option.addEventListener('click', () => {
-        alert(option.innerText + " dili seçildi.");
-      });
-    });
-  </script>
 
 </body>
 </html>
