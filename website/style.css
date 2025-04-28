@@ -1,5 +1,9 @@
 /* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 /* DEĞİŞKENLER */
 :root {
@@ -10,9 +14,10 @@
   --color-accent-hover: #1f6feb;
   --color-text: #e6edf3;
   --color-muted: #8b949e;
-  --radius: 8px;
+  --radius: 12px;
   --transition: 0.3s ease;
-  --font: 'Segoe UI', sans-serif;
+  --font: 'Segoe UI', 'Inter', sans-serif;
+  --glass: rgba(255, 255, 255, 0.05);
 }
 
 /* GENEL */
@@ -21,304 +26,195 @@ body {
   color: var(--color-text);
   font-family: var(--font);
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 /* NAVBAR */
 .navbar {
   background: var(--color-surface);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 }
+
 .navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 16px 0;
+  flex-wrap: wrap;
 }
-.navbar .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
+
 .logo-img {
-  width: 32px;
-  height: 32px;
-  display: block;
+  width: 36px;
+  height: 36px;
 }
+
 .logo-text {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: bold;
   color: var(--color-accent);
 }
+
 .navbar .menu {
   list-style: none;
   display: flex;
-  gap: 20px;
-}
-.navbar .menu a {
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color var(--transition);
-}
-.navbar .menu a:hover {
-  color: var(--color-accent-hover);
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #1f2937, #111827);
-  text-align: center;
-  padding: 120px 0 80px;
+.navbar .menu a {
+  color: var(--color-text);
+  font-size: 15px;
+  padding: 6px 10px;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
 }
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+
+.navbar .menu a:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
 }
-.hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 24px;
-  color: var(--color-muted);
-}
+
+/* BUTON */
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 30px;
   background: var(--color-accent);
   color: #fff;
+  font-weight: bold;
   border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 600;
-  transition: background var(--transition);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all var(--transition);
 }
+
 .btn:hover {
   background: var(--color-accent-hover);
+  transform: scale(1.05);
 }
+
 .btn.outline {
   background: transparent;
   border: 2px solid var(--color-accent);
   color: var(--color-accent);
 }
+
 .btn.outline:hover {
   background: var(--color-accent);
   color: #fff;
 }
 
-/* ÖZELLİKLER */
-.features {
-  padding: 80px 0;
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #1f2937, #0d1117);
+  padding: 140px 20px 100px;
   text-align: center;
-}
-.features h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-.feature-card {
-  background: var(--color-surface);
-  padding: 24px;
-  border-radius: var(--radius);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-}
-.feature-card .icon {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 16px;
-  fill: var(--color-accent);
-}
-.feature-card h3 {
-  margin-bottom: 12px;
-  font-size: 1.1rem;
-}
-.feature-card p {
-  color: var(--color-muted);
-  font-size: 0.95rem;
 }
 
-/* NASIL ÇALIŞIR */
-.how {
-  background: var(--color-surface);
-  padding: 80px 0;
-}
-.how h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-}
-.steps {
-  list-style: none;
-  max-width: 800px;
-  margin: 0 auto;
-  counter-reset: step;
-}
-.steps li {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.step-number {
-  counter-increment: step;
-  font-size: 1.5rem;
-  width: 48px;
-  height: 48px;
-  background: var(--color-accent);
-  color: #fff;
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  font-weight: bold;
-}
-.steps p {
-  font-size: 1rem;
-  color: var(--color-text);
-}
-
-/* HAKKIMIZDA */
-.about {
-  padding: 80px 0;
-  background: var(--color-surface-alt);
-  text-align: center;
-}
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 24px;
-}
-.about p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1rem;
-  color: var(--color-muted);
-}
-
-/* YORUMLAR */
-.testimonials {
-  background: var(--color-surface);
-  padding: 80px 0;
-  text-align: center;
-}
-.testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-.testimonial-card {
-  background: var(--color-bg);
-  padding: 24px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  margin: 0 auto 20px;
-  max-width: 600px;
-}
-.testimonial-card p {
-  font-size: 1rem;
-  color: var(--color-text);
-  margin-bottom: 12px;
-}
-.testimonial-card .author {
-  color: var(--color-muted);
-  font-style: italic;
-  font-size: 0.95rem;
-}
-
-/* SSS */
-.faq {
-  padding: 80px 0;
-  background: var(--color-bg);
-}
-.faq h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
-}
-.faq-item {
-  max-width: 800px;
-  margin: 0 auto 24px;
-}
-.faq-item h4 {
-  font-size: 1.1rem;
-  color: var(--color-accent);
-  margin-bottom: 8px;
-}
-.faq-item p {
-  color: var(--color-muted);
-}
-
-/* GÜNCEL SÜRÜM */
-.changelog {
-  background: var(--color-surface-alt);
-  padding: 60px 20px;
-  text-align: center;
-}
-.changelog h2 {
-  font-size: 2rem;
+.hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
 }
-.changelog ul {
-  list-style: disc;
-  padding-left: 20px;
-  text-align: left;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.changelog li {
-  color: var(--color-text);
-  margin-bottom: 8px;
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  margin-bottom: 30px;
 }
 
-/* İNDİR */
-.download {
-  padding: 80px 0;
-  text-align: center;
+/* FEATURE KARTLAR */
+.feature-card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
-.download h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
 }
-.download p {
-  color: var(--color-muted);
-  margin-bottom: 24px;
+
+.feature-card .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  fill: var(--color-accent);
 }
-.btn-group {
-  display: inline-flex;
-  gap: 16px;
+
+/* TESTIMONIAL */
+.testimonial-card {
+  background: var(--color-surface-alt);
+  padding: 28px;
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 /* FOOTER */
 .footer {
   background: var(--color-surface);
-  padding: 40px 0;
+  padding: 60px 20px;
   color: var(--color-muted);
+  border-top: 1px solid var(--color-surface-alt);
 }
+
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
   text-align: center;
 }
+
 .footer-grid h3 {
-  margin-bottom: 8px;
+  font-size: 1.1rem;
   color: var(--color-text);
+  margin-bottom: 8px;
 }
+
 .footer-grid a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: all var(--transition);
 }
+
 .footer-grid a:hover {
   color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  .navbar .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
 }
