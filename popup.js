@@ -9,15 +9,10 @@ const settingsBtn = document.getElementById('settings-btn');
 const backBtn = document.getElementById('back-btn');
 const mainSec = document.getElementById('main-section');
 const settingsSec = document.getElementById('settings-section');
-
-// Yeni “Web Sitesi” butonu referansı
 const visitSiteBtn = document.getElementById('visit-site-btn');
-// “Whitelist’i Temizle” butonu
 const clearWhitelistBtn = document.getElementById('clear-whitelist-btn');
 
-/**
- * Mevcut whitelist öğelerini listede gösterir.
- */
+/** Whitelist’i render eder */
 function renderWhitelist(items) {
   listEl.innerHTML = '';
   items.forEach((url, idx) => {
@@ -37,31 +32,28 @@ function renderWhitelist(items) {
   });
 }
 
-/**
- * Toggle ve whitelist ayarlarını UI'da günceller.
- */
+/** UI’ı güncelle: toggle + whitelist */
 function renderUI() {
-  chrome.storage.sync.get(['enabled', 'whitelist'], data => {
-    toggle.checked = data.enabled ?? true;
+  chrome.storage.sync.get(['enabled','whitelist'], data => {
+    // Default false olacak
+    toggle.checked = data.enabled ?? false;
     renderWhitelist(data.whitelist ?? []);
   });
 }
 
-/**
- * Aktif sekmeyi yeniler.
- */
+/** Aktif sekmeyi yeniler */
 function refreshActiveTab() {
   chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-    if (tabs.length) chrome.tabs.reload(tabs[0].id);
+    if (tabs[0]) chrome.tabs.reload(tabs[0].id);
   });
 }
 
-// Reklam engelleme toggle'ı değiştiğinde kaydet ve sayfayı yenile
+// Toggle değiştiğinde storage’a kaydet (true/false)
 toggle.addEventListener('change', () => {
   chrome.storage.sync.set({ enabled: toggle.checked }, refreshActiveTab);
 });
 
-// Whitelist'e yeni URL ekle
+// Whitelist’e ekle
 addBtn.addEventListener('click', () => {
   const url = whitelistInput.value.trim();
   if (!url) return;
@@ -77,26 +69,23 @@ addBtn.addEventListener('click', () => {
   });
 });
 
-// Ayarlar panelini aç
+// Ayarlar panelini aç / kapat
 settingsBtn.addEventListener('click', () => {
   mainSec.classList.add('hidden');
   settingsSec.classList.remove('hidden');
 });
-// Ayarlar panelinden geri dön
 backBtn.addEventListener('click', () => {
   settingsSec.classList.add('hidden');
   mainSec.classList.remove('hidden');
 });
 
-// “Web Sitesi” butonu: yeni sekmede doğrudan Vercel URL’sini aç
+// Web Sitesi ve Whitelist temizle
 visitSiteBtn.addEventListener('click', () => {
   chrome.tabs.create({ url: 'https://stream-shieldx.vercel.app' });
 });
-
-// “Whitelist’i Temizle” butonu: tüm whitelist öğelerini sil
 clearWhitelistBtn.addEventListener('click', () => {
   chrome.storage.sync.remove('whitelist', renderUI);
 });
 
-// Sayfa yüklendiğinde UI'ı render et
+// İlk yüklemede UI’ı render et
 document.addEventListener('DOMContentLoaded', renderUI);
